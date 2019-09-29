@@ -17,4 +17,5 @@ node server.js
 ##### Insertion Sort
 ##### Bubble Sort 
 ##### Selection Sort
+##### Merge Sort
 
