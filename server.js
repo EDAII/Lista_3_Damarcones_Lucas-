@@ -1,6 +1,6 @@
 let nodemenu = require('node-menu')
 const { rmnull, addend, deletebycpf, menu, exibirclientes, binsearch } = require('./function')
-const { selectionsort, insertionsort, bubblesort, timeoffunction } = require('./algorithms')
+const { selectionsort, insertionsort, bubblesort, timeoffunction,mergesort } = require('./algorithms')
 const DB = require("./pessoas")
 // let dados
 let opcoes = menu()
@@ -63,7 +63,7 @@ nodemenu.addItem(
         time = timeoffunction(bubblesort, DB, "Bubble Sort")
         time = timeoffunction(selectionsort, DB, "Selection Sort")
         time = timeoffunction(insertionsort, DB, "Insertion Sort")
-        time = timeoffunction(insertionsort, DB, "Merge Sort")
+        time = timeoffunction(mergesort, DB, "Merge Sort")
     })
     .disableDefaultPrompt()
     .start()
