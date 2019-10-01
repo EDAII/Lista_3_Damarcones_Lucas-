@@ -18,30 +18,43 @@ const insertionsort = (data) => {
 }
 
 const mergesort = (data) => {
-    let array = data
-    let half = array.length / 2
+    let array = data;
+    let half = array.length / 2;
 
-    if(array.lenght < 2){
-        return array
+    if(array.lenght <= 1){
+        return array;
+    }
+S
+    let i = 0
+    let left = [], right = []
+    for(i = 0; i < half; i++){
+        left[i] = array[i]
     }
 
-    let left = array.splice(0, half)
+    for( ; i < array.lenght - 1; i++){
+        right[i] = array[i];
+        
+    }
+   
 
-    return mergesort(mergesort(left),mergesort(aray))
+    return merge(mergesort(left), mergesort(right));
 
 }
 const merge = (left, right) =>{
-    let vetorAux
+    let array = [], auxleft = 0, auxright = 0;
 
-    while(left.length && right.length){
-        if(left[0].cpf < right[0].cpf){
-            vetorAux.push(left.shift())
-        }
-        else{
-            vetorAux.push(right.shift())
+    // Concatenando in order
+    while (auxleft < left.length && auxright < right.length) {
+        if (left[auxleft].cpf < right[auxright].cpf) {
+            array.push(left[auxleft]);
+            auxleft++; // movendo o cursor do array esquerdo
+        } else {
+            array.push(right[auxright]);
+            auxright++; //movendo o cursor do array direito
         }
     }
-    return [...vetorAux, ...left, ...rigth]
+
+    return array.concat(left.slice(auxleft)).concat(right.slice(auxright));
 }
 
 const selectionsort = (data) => {
